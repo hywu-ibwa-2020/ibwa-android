@@ -5,7 +5,7 @@
     android:layout_height="173dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardCornerRadius="15dp"
-    android:layout_margin="5dp"
+    android:layout_margin="15dp"
     android:clickable="true"
     android:foreground="?android:attr/selectableItemBackground">
 
