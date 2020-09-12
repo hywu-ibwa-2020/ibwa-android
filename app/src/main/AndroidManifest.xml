@@ -17,6 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".TimerAddActivity"></activity>
+        <activity android:name=".Card_Activity"></activity>
     </application>
 
 </manifest>
