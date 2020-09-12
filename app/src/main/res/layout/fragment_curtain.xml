@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:paddingTop="26dp">
+
+        <Button
+            android:id="@+id/lightBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/light_bar_btn" />
+
+        <ImageButton
+            android:id="@+id/lightPower"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:background="@drawable/light_power_btn"
+            android:src="@drawable/ic_power_settings_new_black_24dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+        <Button
+            android:id="@+id/curtain1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:background="@drawable/curtain1_btn"
+            android:scaleType="fitCenter"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+        <Button
+            android:id="@+id/curtain2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/curtain2_btn"
+            app:layout_constraintStart_toEndOf="@+id/curtain1"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+        android:layout_marginTop="16dp"
+        android:gravity="center_horizontal">
+
+        <ImageButton
+            android:id="@+id/curtainUp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:background="@drawable/curtain_up_btn"
+            android:src="@drawable/triangle_up"/>
+
+        <TextView
+            android:id="@+id/lighting"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:background="@drawable/lighting"
+            android:layout_marginLeft="64dp"/>
+
+        <ImageButton
+            android:id="@+id/curtainDown"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:background="@drawable/curtain_up_btn"
+            android:rotation="180"
+            android:src="@drawable/triangle_up"
+            android:layout_marginLeft="64dp"/>
+    </LinearLayout>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

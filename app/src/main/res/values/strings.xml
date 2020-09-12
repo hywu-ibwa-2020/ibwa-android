@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">MaknaeTest</string>
+    <string name="timer_zero_message">만들어진 타이머가 없습니다.</string>
+    <string name="timer_add_btn">+ 타이머 추가</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
