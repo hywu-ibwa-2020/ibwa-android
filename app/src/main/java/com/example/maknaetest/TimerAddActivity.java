@@ -1,19 +1,30 @@
 package com.example.maknaetest;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.viewpager.widget.ViewPager;
 
+import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.NumberPicker;
+import android.widget.TextView;
 
 public class TimerAddActivity extends AppCompatActivity {
     //프래그먼트
-    private FragmentManager fragmentManager = getSupportFragmentManager();
-    private FragmentTimerSelectCurtain1 fragmentTimerSelectCurtain1 = new FragmentTimerSelectCurtain1();
+//    private FragmentManager fragmentManager = getSupportFragmentManager();
+//    private FragmentTimerSelectCurtain1 fragmentTimerSelectCurtain1 = new FragmentTimerSelectCurtain1();
+    ViewPager viewPager;
+    LinearLayout linearLayout5;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,17 +36,14 @@ public class TimerAddActivity extends AppCompatActivity {
         NumberPicker ap_num_picker =(NumberPicker)findViewById(R.id.ap_num_picker);     // 오전 오후
         NumberPicker hour_num_picker =(NumberPicker)findViewById(R.id.hour_num_picker); // 시
         NumberPicker min_num_picker =(NumberPicker)findViewById(R.id.min_num_picker);   // 분
-        // 타이머 설정을 위한 커튼, 조명 버튼 선언 (이거 모르겠음..ㅠㅠㅠ 내부 클래스라서 final 붙은 건데 이래도 잘 되나..? (질문!!!!!!))
-        Button curtain1_btn = (Button)findViewById(R.id.select_curtain1_btn);
-        Button curtain2_btn = (Button)findViewById(R.id.select_curtain2_btn);
-        Button light_btn = (Button)findViewById(R.id.select_light_btn);
+        // 타이머 설정을 위한 커튼, 조명 텍스트뷰 선언
+        TextView curtain1 = (TextView)findViewById(R.id.select_curtain1_textView);
+        TextView curtain2 = (TextView)findViewById(R.id.select_curtain2_textView);
+        TextView light = (TextView)findViewById(R.id.select_light_textView);
         // 프래그먼트
-        // 색상 저장
-        String select_color = "#fbd14b";
-        String unselect_color = "#fffcf0";
+        viewPager = (ViewPager)findViewById(R.id.viewPager);
+        linearLayout5 = (LinearLayout)findViewById(R.id.linearLayout5);
 
-        FragmentTransaction transaction = fragmentManager.beginTransaction();
-        transaction.replace(R.id.frameLayout, fragmentTimerSelectCurtain1).commitAllowingStateLoss();
 
         // 오전 오후 결정하는 넘버피커 설정
         NumberPicker.Formatter ap_formatter = new NumberPicker.Formatter() {
@@ -60,33 +68,93 @@ public class TimerAddActivity extends AppCompatActivity {
         hour_num_picker.setMaxValue(12);
         hour_num_picker.setOnLongPressUpdateInterval(100);
 
-        // 분 결정하는 넘버피커커
+        // 분 결정하는 넘버피커
         min_num_picker.setMinValue(00);
         min_num_picker.setMaxValue(59);
         min_num_picker.setOnLongPressUpdateInterval(100);
 
 
-        // 커튼1 버튼이 눌렸을 때,
-        curtain1_btn.setOnClickListener(new View.OnClickListener() {
+        // 커튼1, 2, 조명 탭을 위한 뷰페이저 셋팅.
+        viewPager.setAdapter(new pagerAdapter(getSupportFragmentManager()));
+        viewPager.setCurrentItem(0);
+
+        curtain1.setOnClickListener(movePageListener);
+        curtain1.setTag(0);
+        curtain2.setOnClickListener(movePageListener);
+        curtain2.setTag(1);
+        light.setOnClickListener(movePageListener);
+        light.setTag(2);
+
+        // 초기 프래그먼트 curtain1
+        curtain1.setSelected(true);
+
+        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
-            public void onClick(View v) {
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                int i = 0;
+                while(i<3) {
+                    if(position==i) {
+                        linearLayout5.findViewWithTag(i).setSelected(true);
+                    }
+                    else {
+                        linearLayout5.findViewWithTag(i).setSelected(false);
+                    }
+                    i++;
+                }
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
             }
         });
 
-        // 커튼2 버튼이 눌렸을 때,
-        curtain2_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
+        // 캔슬버튼 눌러서 액티비티 치우기.
+        // 확인버튼 눌러서 액티비티 치우고 타이머 저장.
+    }
+    View.OnClickListener movePageListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            int tag = (int) v.getTag();
+            int i = 0;
+            while(i<3) {
+                if(tag==i) {
+                    linearLayout5.findViewWithTag(i).setSelected(true);
+                }
+                else {
+                    linearLayout5.findViewWithTag(i).setSelected(false);
+                }
+                i++;
             }
-        });
+            viewPager.setCurrentItem(tag);
+        }
+    };
+    private class pagerAdapter extends FragmentStatePagerAdapter {
+        public pagerAdapter(FragmentManager fm) {
+            super(fm);
+        }
 
-        // 조명 버튼이 눌렸을 때,
-        light_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        @Override
+        public Fragment getItem(int position) {
+            switch(position) {
+                case 0:
+                    return new FragmentTimerSelectCurtain1();
+                case 1:
+                    return new FragmentTimerSelectCurtain2();
+                case 2:
+                    return new FragmentTimerSelectLight();
+                default:
+                    return null;
             }
-        });
+        }
+        @Override
+        public int getCount() {
+            return 3;
+        }
     }
 }
 

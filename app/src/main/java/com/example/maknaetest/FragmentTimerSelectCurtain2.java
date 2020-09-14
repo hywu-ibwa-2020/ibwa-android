@@ -2,63 +2,61 @@ package com.example.maknaetest;
 
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CompoundButton;
+import android.widget.NumberPicker;
+import android.widget.Switch;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link FragmentTimerSelectCurtain2#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class FragmentTimerSelectCurtain2 extends Fragment {
-
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public FragmentTimerSelectCurtain2() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment FragmentTimerSelectCurtain2.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static FragmentTimerSelectCurtain2 newInstance(String param1, String param2) {
-        FragmentTimerSelectCurtain2 fragment = new FragmentTimerSelectCurtain2();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
+    Switch switch1;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_timer_select_curtain2, container, false);
+        View select_curtain2_view = inflater.inflate(R.layout.fragment_timer_select_curtain2, container, false);
+
+        // 넘버픽커
+        NumberPicker curtain2_picker = (NumberPicker)select_curtain2_view.findViewById(R.id.curtain_height);
+        // 스위치
+        switch1 = (Switch) select_curtain2_view.findViewById(R.id.switch1);
+
+        NumberPicker.Formatter ap_formatter = new NumberPicker.Formatter() {
+            @Override
+            public String format(int value) {
+                switch (value){
+                    case 0:
+                        return "0";
+                    case 1:
+                        return "50";
+                    case 2:
+                        return "100";
+                }
+                return null;
+            }
+        };
+        curtain2_picker.setMinValue(0);
+        curtain2_picker.setMaxValue(2);
+        curtain2_picker.setFormatter(ap_formatter);
+        curtain2_picker.setWrapSelectorWheel(false);
+
+        switch1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener(){
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked) {
+                    //사용 상태일때 코드 여기 채워야함!!!!!!!!!!!!!!!!!!!!!
+                } else {
+                    //미사용 상태로 만들 시 코드
+                    // 할 일.
+                    // 1. 비활성화 시키기 (회색 불투명하게. 넘버픽커 안 움직이게.)
+                }
+            }
+        });
+
+        return select_curtain2_view;
     }
 }

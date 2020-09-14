@@ -7,58 +7,33 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CompoundButton;
+import android.widget.Switch;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link FragmentTimerSelectLight#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class FragmentTimerSelectLight extends Fragment {
-
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public FragmentTimerSelectLight() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment FragmentTimerSelectLight.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static FragmentTimerSelectLight newInstance(String param1, String param2) {
-        FragmentTimerSelectLight fragment = new FragmentTimerSelectLight();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
+    Switch switch1;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_timer_select_light, container, false);
+        View select_light_view = inflater.inflate(R.layout.fragment_timer_select_light, container, false);
+
+        // 스위치
+        switch1 = (Switch) select_light_view.findViewById(R.id.switch1);
+
+        switch1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener(){
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked) {
+                    //사용 상태일때 코드 여기 채워야함!!!!!!!!!!!!!!!!!!!!!
+                } else {
+                    //미사용 상태로 만들 시 코드
+                    // 할 일.
+                    // 1. 비활성화 시키기 (회색 불투명하게. 넘버픽커 안 움직이게.)
+                }
+            }
+        });
+
+        return select_light_view;
     }
 }

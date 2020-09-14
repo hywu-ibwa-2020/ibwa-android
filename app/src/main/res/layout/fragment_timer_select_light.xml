@@ -1,14 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FragmentTimerSelectLight">
+    tools:context=".FragmentTimerSelectCurtain1">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+    <LinearLayout
+        android:id="@+id/linearLayout7"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:gravity="center">
+        <TextView
+            android:id="@+id/off_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="미사용"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/mainTxt"
+            android:layout_margin="24dp"/>
+        <Switch
+            android:id="@+id/switch1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="24dp"
+            android:thumb="@drawable/timer_add_switch_thumb"
+            android:track="@drawable/timer_add_switch_selector"
+            android:switchMinWidth="0dp"
+            android:textOff=""
+            android:textOn=""
+            android:thumbTextPadding="15dp"/>
+        <TextView
+            android:id="@+id/on_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="   사용"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/mainTxt"
+            android:layout_margin="24dp"/>
+    </LinearLayout>
 
-</FrameLayout>
+    <View
+        android:id="@+id/view3"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginBottom="649dp"
+        android:background="@color/mainP"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout7"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

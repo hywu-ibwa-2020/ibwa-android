@@ -8,4 +8,5 @@
     <color name="btnBorder">#989393</color>
     <color name="mainTxt">#000000</color>
     <color name="transparent">#00FFFFFF</color>
+    <color name="switchOff">#BEBEBE</color>
 </resources>
