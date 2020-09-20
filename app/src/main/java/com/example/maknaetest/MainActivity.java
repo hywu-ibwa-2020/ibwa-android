@@ -23,8 +23,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Intent intent = new Intent(this, LoadingActivity.class);
-        startActivity(intent);
 
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         transaction.replace(R.id.frameLayout, fragmentCurtain).commitAllowingStateLoss();   // 첫 화면에서 커튼 프래그먼트 나오도록
