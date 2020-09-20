@@ -76,7 +76,7 @@
             android:id="@+id/lighting"
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:background="@drawable/lighting"
+            android:background="@drawable/lighting_red"
             android:layout_marginLeft="64dp"/>
 
         <ImageButton

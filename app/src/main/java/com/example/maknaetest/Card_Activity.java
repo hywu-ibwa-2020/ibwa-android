@@ -1,6 +1,7 @@
 package com.example.maknaetest;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -22,6 +23,9 @@ public class Card_Activity extends AppCompatActivity {
         tvcategory = (TextView) findViewById(R.id.txtCat);
         img = (ImageView) findViewById(R.id.cardthumbnail);
 
+
+
+
         // Recieve Data
         Intent intent = getIntent();
         String Title = intent.getExtras().getString("Title");
@@ -33,6 +37,9 @@ public class Card_Activity extends AppCompatActivity {
         tvtitle.setText(Title);
         tvdescription.setText(Description);
         img.setImageResource(image);
+
+        Drawable alpha = ((ImageView)findViewById(R.id.cardthumbnail)).getBackground();
+        alpha.setAlpha(50);
 
 
     }
