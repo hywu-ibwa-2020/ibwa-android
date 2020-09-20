@@ -9,9 +9,9 @@
 
     <ImageView
         android:id="@+id/cardthumbnail"
-        android:layout_width="493dp"
-        android:layout_height="843dp"
-        android:background="@color/subY"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#CCFFFCF0"
         android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -57,7 +57,6 @@
         android:layout_marginStart="40dp"
         android:layout_marginTop="60dp"
         android:text="원하는 분위기에 맞게"
-        android:background="#ffffff"
         android:textColor="#000000"
         android:textSize="24sp"
         android:textStyle="bold"
@@ -70,7 +69,6 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
         android:layout_marginTop="10dp"
-        android:background="#ffffff"
         android:text="막내가 추천드리는 음악과 조명"
         android:textColor="#000000"
         android:textSize="24sp"

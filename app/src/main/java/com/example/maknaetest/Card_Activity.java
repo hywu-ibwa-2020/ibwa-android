@@ -37,9 +37,9 @@ public class Card_Activity extends AppCompatActivity {
         tvtitle.setText(Title);
         tvdescription.setText(Description);
         img.setImageResource(image);
-
-        Drawable alpha = ((ImageView)findViewById(R.id.cardthumbnail)).getBackground();
-        alpha.setAlpha(50);
+        img.setImageAlpha(0x80);
+//        Drawable alpha = ((ImageView)findViewById(R.id.cardthumbnail)).getBackground();
+//        alpha.setAlpha(50);
 
 
     }
