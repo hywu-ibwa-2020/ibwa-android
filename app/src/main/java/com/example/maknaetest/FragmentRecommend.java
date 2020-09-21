@@ -24,12 +24,12 @@ public class FragmentRecommend extends Fragment {
         View recommended_view = inflater.inflate(R.layout.fragment_recommend, container, false);
 
         lstCard = new ArrayList<>();
-        lstCard.add(new Card("혼술하기 딱 좋은","category card","description card",R.drawable.forth));
-        lstCard.add(new Card("기분전환이 필요해","category card","description card",R.drawable.first));
-        lstCard.add(new Card("LOVE HOUSE","category card","description card",R.drawable.second));
-        lstCard.add(new Card("위로받고 싶은 날","category card","description card",R.drawable.third));
-        lstCard.add(new Card("스터디집중모드","category card","description card",R.drawable.card_book));
-        lstCard.add(new Card("집순이를 위한","category card","description card",R.drawable.card_home));
+        lstCard.add(new Card("혼술하기 딱 좋은","category card","description card",R.drawable.forth,R.drawable.heart_1));
+        lstCard.add(new Card("기분전환이 필요해","category card","description card",R.drawable.first,R.drawable.heart_1));
+        lstCard.add(new Card("LOVE HOUSE","category card","description card",R.drawable.second,R.drawable.heart_2));
+        lstCard.add(new Card("위로받고 싶은 날","category card","description card",R.drawable.third,R.drawable.heart_1));
+        lstCard.add(new Card("스터디집중모드","category card","description card",R.drawable.card_book,R.drawable.heart_1));
+        lstCard.add(new Card("집순이를 위한","category card","description card",R.drawable.card_home,R.drawable.heart_1));
 
         RecyclerView myrv = (RecyclerView) recommended_view.findViewById(R.id.recycler_id);
         RecyclerViewAdapter myAdapter = new RecyclerViewAdapter(lstCard, getActivity());

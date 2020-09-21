@@ -5,15 +5,17 @@ public class Card {
     private String category;
     private String description;
     private int thumbnail;
+    private int heart;
 
     public Card() {
     }
 
-    public Card(String title, String category, String description, int thumbnail) {
+    public Card(String title, String category, String description, int thumbnail, int heart) {
         this.title = title;
         this.category = category;
         this.description = description;
         this.thumbnail = thumbnail;
+        this.heart = heart;
     }
 
     public String getTitle() {
@@ -32,6 +34,10 @@ public class Card {
         return thumbnail;
     }
 
+    public int getHeart() {
+        return heart;
+    }
+
     public void setTitle(String title) {
         this.title = title;
     }
@@ -46,5 +52,9 @@ public class Card {
 
     public void setThumbnail(int thumbnail) {
         this.thumbnail = thumbnail;
+    }
+
+    public void setHeart(int heart) {
+        this.heart = heart;
     }
 }

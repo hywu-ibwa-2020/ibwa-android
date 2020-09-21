@@ -35,10 +35,12 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     public void onBindViewHolder(@NonNull MyViewHolder holder, final int position) {
         holder.tv_card_title.setText(mData.get(position).getTitle());
         holder.img_card_thumbnail.setImageResource(mData.get(position).getThumbnail());
+        holder.heart.setImageResource(mData.get(position).getHeart());
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Context context = v.getContext();
+
                 // passing data to the card activity
                 Intent intent = new Intent(v.getContext(), Card_Activity.class);
                 intent.putExtra("Title",mData.get(position).getTitle());
@@ -66,6 +68,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         TextView tv_card_title ;
         ImageView img_card_thumbnail;
         CardView cardView;
+        ImageView heart;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -73,6 +76,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             tv_card_title = (TextView)itemView.findViewById(R.id.card_title_id);
             img_card_thumbnail = (ImageView) itemView.findViewById(R.id.card_img_id);
             cardView = (CardView) itemView.findViewById(R.id.cardview_id);
+            heart = (ImageView) itemView.findViewById(R.id.card_heart);
 
         }
     }

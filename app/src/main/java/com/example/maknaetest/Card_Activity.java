@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class Card_Activity extends AppCompatActivity {
 
     private TextView tvtitle,tvdescription,tvcategory;
-    private ImageView img;
+    private ImageView img, heart;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +22,7 @@ public class Card_Activity extends AppCompatActivity {
         tvdescription = (TextView) findViewById(R.id.txtDesc);
         tvcategory = (TextView) findViewById(R.id.txtCat);
         img = (ImageView) findViewById(R.id.cardthumbnail);
+        heart = (ImageView) findViewById(R.id.card_heart);
 
 
 
@@ -38,8 +39,8 @@ public class Card_Activity extends AppCompatActivity {
         tvdescription.setText(Description);
         img.setImageResource(image);
         img.setImageAlpha(0x80);
-//        Drawable alpha = ((ImageView)findViewById(R.id.cardthumbnail)).getBackground();
-//        alpha.setAlpha(50);
+
+
 
 
     }

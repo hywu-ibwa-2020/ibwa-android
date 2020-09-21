@@ -30,20 +30,35 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0" />
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/heart1"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_weight="0.8"
-            android:scaleType="centerCrop"
-            android:src="@drawable/heart_2"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/card_img_id"
-            app:layout_constraintHorizontal_bias="0.95"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.7"
-            tools:ignore="MissingConstraints" />
+<!--        <androidx.appcompat.widget.AppCompatImageButton-->
+<!--            android:id="@+id/heart1"-->
+<!--            android:layout_width="25dp"-->
+<!--            android:layout_height="25dp"-->
+<!--            android:layout_weight="0.8"-->
+<!--          android:scaleType="fitXY"-->
+<!--            android:background="@color/transparent"-->
+<!--            android:src="@drawable/heart_1"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="@+id/card_img_id"-->
+<!--            app:layout_constraintHorizontal_bias="0.95"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent"-->
+<!--            app:layout_constraintVertical_bias="0.7"-->
+<!--            tools:ignore="MissingConstraints"/>-->
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/card_heart"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_weight="0.8"
+                    android:scaleType="centerCrop"
+
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/card_img_id"
+                    app:layout_constraintHorizontal_bias="0.95"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.7"
+                    tools:ignore="MissingConstraints" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/card_title_id"
