@@ -18,9 +18,9 @@ public class Card_Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_card_);
 
-        tvtitle = (TextView) findViewById(R.id.txttitle);
-        tvdescription = (TextView) findViewById(R.id.txtDesc);
-        tvcategory = (TextView) findViewById(R.id.txtCat);
+//        tvtitle = (TextView) findViewById(R.id.txttitle);
+//        tvdescription = (TextView) findViewById(R.id.txtDesc);
+//        tvcategory = (TextView) findViewById(R.id.txtCat);
         img = (ImageView) findViewById(R.id.cardthumbnail);
         heart = (ImageView) findViewById(R.id.card_heart);
 
@@ -35,8 +35,8 @@ public class Card_Activity extends AppCompatActivity {
 
 
         //Setting values
-        tvtitle.setText(Title);
-        tvdescription.setText(Description);
+//        tvtitle.setText(Title);
+//        tvdescription.setText(Description);
         img.setImageResource(image);
         img.setImageAlpha(0x80);
 

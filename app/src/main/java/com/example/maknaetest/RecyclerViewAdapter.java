@@ -33,9 +33,14 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, final int position) {
+
+
         holder.tv_card_title.setText(mData.get(position).getTitle());
         holder.img_card_thumbnail.setImageResource(mData.get(position).getThumbnail());
         holder.heart.setImageResource(mData.get(position).getHeart());
+        holder.heart.setOnClickListener(new MyListener());
+
+
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -55,8 +60,25 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
         // set click
 
-
     }
+
+    class MyListener implements View.OnClickListener {
+        int [] ImageId = {R.drawable.heart_1, R.drawable.heart_2};
+        int i = 0;
+        int length = ImageId.length;
+
+        @Override
+        public void onClick(View v) {
+//            holder.heart.setImageResource(ImageId[i]); 이곳 해결하기!!!!!
+
+
+            i+=1;
+            if(i == ImageId.length) i = 0;
+        } // end onClick
+
+
+    } // end MyListener()
+
 
     @Override
     public int getItemCount() {
