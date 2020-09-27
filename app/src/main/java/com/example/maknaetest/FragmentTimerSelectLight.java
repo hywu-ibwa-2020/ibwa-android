@@ -11,6 +11,8 @@ import android.widget.CompoundButton;
 import android.widget.Switch;
 
 public class FragmentTimerSelectLight extends Fragment {
+    // 아직 컬러픽커 설정하는 코드 없음.
+    // 선언
     Switch switch1;
 
     @Override
@@ -21,6 +23,7 @@ public class FragmentTimerSelectLight extends Fragment {
         // 스위치
         switch1 = (Switch) select_light_view.findViewById(R.id.switch1);
 
+        // 스위치 상태 변화를 확인하는 리스너.
         switch1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener(){
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {

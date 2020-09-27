@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 
+import com.example.maknaetest.timerlist.FragmentTimerList;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
@@ -16,23 +17,29 @@ public class MainActivity extends AppCompatActivity {
     // 하단 바를 위한 프레그먼트 선언.
     private FragmentManager fragmentManager = getSupportFragmentManager();
     private FragmentCurtain fragmentCurtain = new FragmentCurtain();
-    private FragmentTimer fragmentTimer = new FragmentTimer();
+//    private FragmentTimer fragmentTimer = new FragmentTimer();
+    private FragmentTimerList fragmentTimer = new FragmentTimerList();  // 일단 해보는거..
     private FragmentRecommend fragmentRecommend = new FragmentRecommend();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        setTheme(R.style.AppTheme);
+        setTheme(R.style.AppTheme); // 테마 지정해줌.
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         FragmentTransaction transaction = fragmentManager.beginTransaction();
-        transaction.replace(R.id.frameLayout, fragmentCurtain).commitAllowingStateLoss();   // 첫 화면에서 커튼 프래그먼트 나오도록
+        // 첫 화면에서 커튼 프래그먼트 나오도록하기 위해서 사용한 것인데 코드 상 필요 없어보임.
+//        transaction.replace(R.id.frameLayout, fragmentCurtain).commitAllowingStateLoss();
 
+        // 하단 바 id 찾아서 BottomNavigationView 타입 bottomNavigationView 정의
         BottomNavigationView bottomNavigationView = findViewById(R.id.navigationView);
+        // 리스너 적용.
         bottomNavigationView.setOnNavigationItemSelectedListener(new ItemSelectedListener());
+        // 첫 화면에서 커튼 프래그먼트 나오도록
         bottomNavigationView.setSelectedItemId(R.id.curtainItem);
     }
 
+    // 하단바 클릭하면 프래그먼트 변하도록 해주는 리스너 클래스 생성.
     class ItemSelectedListener implements BottomNavigationView.OnNavigationItemSelectedListener{
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {

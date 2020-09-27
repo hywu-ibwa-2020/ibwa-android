@@ -24,12 +24,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="64dp"
+        android:background="@drawable/timer_add_btn"
         android:text="@string/timer_add_btn"
+        android:textColor="@color/mainBg"
         android:textSize="20sp"
         android:textStyle="bold"
-        android:background="@drawable/timer_add_btn"
-        android:textColor="@color/mainBg"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/timer_textView" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/fragment_timer_list_recylerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/timer_add_btn"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
