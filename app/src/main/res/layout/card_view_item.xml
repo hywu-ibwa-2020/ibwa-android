@@ -37,7 +37,7 @@
 <!--            android:layout_weight="0.8"-->
 <!--          android:scaleType="fitXY"-->
 <!--            android:background="@color/transparent"-->
-<!--            android:src="@drawable/heart_1"-->
+<!--            android:src="@drawable/heart_line"-->
 <!--            app:layout_constraintBottom_toBottomOf="parent"-->
 <!--            app:layout_constraintEnd_toEndOf="@+id/card_img_id"-->
 <!--            app:layout_constraintHorizontal_bias="0.95"-->
@@ -73,7 +73,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/card_img_id"
             app:layout_constraintStart_toStartOf="@+id/card_img_id"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"/>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -16,7 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolder> {
-    private List<Card> mData;
+    private List<Card> mData; // 카드뷰리스트 안 각 카드들의 요소데이터(제목, 꽉찬 하트, ) 카드 확장화면에 전송하기 위해
 
     public RecyclerViewAdapter(List<Card> mData, Activity activity) {
         this.mData = mData;
@@ -35,10 +35,10 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     public void onBindViewHolder(@NonNull MyViewHolder holder, final int position) {
 
 
-        holder.tv_card_title.setText(mData.get(position).getTitle());
-        holder.img_card_thumbnail.setImageResource(mData.get(position).getThumbnail());
-        holder.heart.setImageResource(mData.get(position).getHeart());
-        holder.heart.setOnClickListener(new MyListener());
+        holder.tv_card_title.setText(mData.get(position).getTitle()); //MyViewHolder 클래스(아래코드에 있음)에 카드뷰 리스트에서 가져온 값 (기분전환이 필요해) 넣기
+        holder.img_card_thumbnail.setImageResource(mData.get(position).getThumbnail());//MyViewHolder 클래스(아래코드에 있음)에 카드뷰 리스트에서 가져온 값 (배경사진) 넣기
+        holder.heart.setImageResource(mData.get(position).getHeart());//MyViewHolder 클래스(아래코드에 있음)에 카드뷰 리스트에서 가져온 값 (빈하트) 넣기
+        holder.heart.setOnClickListener(new MyListener());// 하트 이미지를 클릭하면 발생하는 상황을 MyListener()에서 처리
 
 
         holder.cardView.setOnClickListener(new View.OnClickListener() {
@@ -63,15 +63,13 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     }
 
     class MyListener implements View.OnClickListener {
-        int [] ImageId = {R.drawable.heart_1, R.drawable.heart_2};
+        int [] ImageId = {R.drawable.heart_line, R.drawable.heart_full};
         int i = 0;
         int length = ImageId.length;
 
         @Override
         public void onClick(View v) {
-//            holder.heart.setImageResource(ImageId[i]); 이곳 해결하기!!!!!
-
-
+//            holder.heart.setImageResource(ImageId[i]);
             i+=1;
             if(i == ImageId.length) i = 0;
         } // end onClick
@@ -95,10 +93,10 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            tv_card_title = (TextView)itemView.findViewById(R.id.card_title_id);
-            img_card_thumbnail = (ImageView) itemView.findViewById(R.id.card_img_id);
-            cardView = (CardView) itemView.findViewById(R.id.cardview_id);
-            heart = (ImageView) itemView.findViewById(R.id.card_heart);
+            tv_card_title = (TextView)itemView.findViewById(R.id.card_title_id); //card_view_item.xml의 card_title_id .ex)기분전환이 필요헤 ..
+            img_card_thumbnail = (ImageView) itemView.findViewById(R.id.card_img_id); //card_view_item.xml의 card_img_id (배경이미지)
+            cardView = (CardView) itemView.findViewById(R.id.cardview_id); //card_view_item.xml의 cardview_id (카드뷰 틀)
+            heart = (ImageView) itemView.findViewById(R.id.card_heart);//card_view_item.xml의 card_heart(하트부분)
 
         }
     }
