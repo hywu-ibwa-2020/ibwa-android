@@ -26,6 +26,7 @@ MainActivity: 상단에는 프래그먼트, 하단에는 메뉴바(맞춤추천,
 TimerAddActivity의 화면은 시간 설정을 위한 타임피커(원래는 넘버피커로 사용하였으나 그 부분보다 화면 설계가 더 급해서
 사용을 미룸.)와 요일반복을 위한 토글버튼들, 프래그먼트를 위한 탭, 프래그먼트를 띄우는 레이아웃으로 구성.
 Timer.java: 타이머 클래스
+TimerBroadcastReceiver.java: 타이머 관련 이벤트와 정보를 보내는 Broadcast Receiver
 
 - 타이머들이 생성되면 일종의 리스트처럼 처리해주는 부분 (즉, 생성된 타이머들을 예쁘게 나열해주는 부분)
   - TimerRecyclerViewAdapter.java: 각 타이머 뷰들 생성하는 기능을 함.
