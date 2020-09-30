@@ -13,6 +13,12 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 public class FragmentCurtain extends Fragment {
+    // 아직 커튼 활성화, 비활성화 설정 코드 없음.
+    // 아직 커튼 위, 아래 버튼 설정 코드 없음.
+    // 아직 조명바 온오프 설정 코드 없음.
+    // 아직 컬러픽커를 통한 조명바 색상 변경 코드 없음.
+
+
     ImageButton lightPower_btn;
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View curtain_view =  inflater.inflate(R.layout.fragment_curtain, container, false);

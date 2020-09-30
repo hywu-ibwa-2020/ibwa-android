@@ -13,6 +13,7 @@ import android.widget.NumberPicker;
 import android.widget.Switch;
 
 public class FragmentTimerSelectCurtain2 extends Fragment {
+    // 선언
     Switch switch1;
 
     @Override
@@ -20,7 +21,7 @@ public class FragmentTimerSelectCurtain2 extends Fragment {
                              Bundle savedInstanceState) {
         View select_curtain2_view = inflater.inflate(R.layout.fragment_timer_select_curtain2, container, false);
 
-        // 넘버픽커
+        // 넘버픽커 선언 및 정의
         NumberPicker curtain2_picker = (NumberPicker)select_curtain2_view.findViewById(R.id.curtain_height);
         // 스위치
         switch1 = (Switch) select_curtain2_view.findViewById(R.id.switch1);
@@ -44,6 +45,7 @@ public class FragmentTimerSelectCurtain2 extends Fragment {
         curtain2_picker.setFormatter(ap_formatter);
         curtain2_picker.setWrapSelectorWheel(false);
 
+        // 스위치 상태 변화를 확인하는 리스너.
         switch1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener(){
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {

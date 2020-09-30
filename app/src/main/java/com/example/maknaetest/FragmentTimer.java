@@ -11,6 +11,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.example.maknaetest.createtimer.TimerAddActivity;
+
 public class FragmentTimer extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View timer_view =  inflater.inflate(R.layout.fragment_timer, container, false);

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TimerAddActivity">
+    tools:context=".createtimer.TimerAddActivity">
 
 
     <LinearLayout
@@ -16,42 +16,49 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <NumberPicker
-            android:id="@+id/ap_num_picker"
-            android:layout_width="wrap_content"
+        <TimePicker
+            android:id="@+id/time_picker"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:descendantFocusability="blocksDescendants"
-            android:theme="@style/AppTheme.Picker.ap" />
+            android:timePickerMode="spinner"
+            android:theme="@style/AppTheme.Picker.ap"/>
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="2">
+<!--        <NumberPicker-->
+<!--            android:id="@+id/ap_num_picker"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_weight="1"-->
+<!--            android:descendantFocusability="blocksDescendants"-->
+<!--            android:theme="@style/AppTheme.Picker.ap" />-->
 
-            <NumberPicker
-                android:id="@+id/hour_num_picker"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="2"
-                android:theme="@style/AppTheme.Picker" />
+<!--        <LinearLayout-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_weight="2">-->
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_weight="1"
-                android:gravity="center_horizontal"
-                android:text=":"
-                android:textSize="48sp" />
+<!--            <NumberPicker-->
+<!--                android:id="@+id/hour_num_picker"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_weight="2"-->
+<!--                android:theme="@style/AppTheme.Picker" />-->
 
-            <NumberPicker
-                android:id="@+id/min_num_picker"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="2"
-                android:theme="@style/AppTheme.Picker" />
-        </LinearLayout>
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:layout_weight="1"-->
+<!--                android:gravity="center_horizontal"-->
+<!--                android:text=":"-->
+<!--                android:textSize="48sp" />-->
+
+<!--            <NumberPicker-->
+<!--                android:id="@+id/min_num_picker"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_weight="2"-->
+<!--                android:theme="@style/AppTheme.Picker" />-->
+<!--        </LinearLayout>-->
 
     </LinearLayout>
 
@@ -266,7 +273,7 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <Button
-            android:id="@+id/cancel_button"
+            android:id="@+id/cancel_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -276,7 +283,7 @@
             android:textStyle="bold" />
 
         <Button
-            android:id="@+id/confirm_button"
+            android:id="@+id/confirm_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
