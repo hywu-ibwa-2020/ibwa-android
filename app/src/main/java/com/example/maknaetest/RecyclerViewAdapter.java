@@ -66,7 +66,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     class MyListener implements View.OnClickListener {
 
-        int [] ImageId = {R.drawable.heart_line, R.drawable.heart_full};
+        int [] ImageId = {R.drawable.heart_full, R.drawable.heart_line};
         int i = 0;
         int length = ImageId.length;
         ImageView heart;
