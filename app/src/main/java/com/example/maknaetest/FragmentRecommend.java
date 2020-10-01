@@ -40,7 +40,7 @@ public class FragmentRecommend extends Fragment {
 
         Button sort_btn = (Button) recommended_view.findViewById(R.id.sort_btn);
 
-        sort_btn.setOnClickListener(new View.OnClickListener(){
+        sort_btn.setOnClickListener(new View.OnClickListener(){ // 정렬버튼 클릭시 채워진 하트를 포함하는 카드를 우선 정렬
 
             @Override
             public void onClick(View view) {
