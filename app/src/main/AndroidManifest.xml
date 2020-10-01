@@ -21,6 +21,7 @@
 
         <activity android:name=".createtimer.TimerAddActivity"></activity>
         <activity android:name=".Card_Activity"></activity>
+        <activity android:name=".Pick_Activity"></activity>
 
         <receiver android:name=".broadcastreceiver.TimerBroadcastReceiver">
             <intent-filter>

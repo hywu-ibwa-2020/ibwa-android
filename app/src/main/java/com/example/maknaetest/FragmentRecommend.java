@@ -1,9 +1,13 @@
 package com.example.maknaetest;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -12,6 +16,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class FragmentRecommend extends Fragment {
@@ -33,16 +38,55 @@ public class FragmentRecommend extends Fragment {
         myrv.setLayoutManager(new GridLayoutManager(getActivity(),2)); //fragment_recommend.xml의 recycler_id 부분이 카드뷰 두개가 채워지면 줄바꿈
         myrv.setAdapter(myAdapter); // RecyclerView에 어댑터 연결
 
-//        // 막내의 pick 이용하기 버튼 (구현준비중!)
-//        Button pick_btn = (Button) recommended_view.findViewById(R.id.pick_btn);
-//        // 버튼 누르면 activity_card 액티비티(뮤직화면)로 이동.
-//        pick_btn.setOnClickListener(new View.OnClickListener() {
+        Button sort_btn = (Button) recommended_view.findViewById(R.id.sort_btn);
+
+        sort_btn.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View view) {
+
+                lstCard.sort(new Comparator<Card>() {
+                    @Override
+                    public int compare(Card o1, Card o2) {
+                        if (o1.getHeart() < o2.getHeart()){
+                            return 1;
+                        }else if (o1.getHeart() > o1.getHeart()) {
+                            return -1;
+                        }
+                        return 0;
+
+
+                    }
+                });
+
+            }
+        });
+        myAdapter.notifyDataSetChanged(); // 어댑터 갱신
+        myrv.setAdapter(myAdapter); // RecyclerView에 어댑터 재연결
+
+
+
+
+
+        // 카드뷰의 각 카드를 객체 비교하여 heart 원소가 heart_full인 것을 우선 정렬
+//        lstCard.sort(new Comparator<Card>() {
 //            @Override
-//            public void onClick(View v) {
-//                Intent pick_intent = new Intent(getActivity(), Card_Activity.class);
-//                startActivity(pick_intent);
+//            public int compare(Card o1, Card o2) {
+//                    return o1.getHeart() - o2.getHeart();
 //            }
 //        });
+
+//        // 막내의 pick 이용하기 버튼
+        Button pick_btn = (Button) recommended_view.findViewById(R.id.pick_btn);
+        // 버튼 누르면 activity_ai_pick 액티비티로 이동.
+        pick_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Context context = v.getContext();
+                Intent pick_intent = new Intent(getActivity(), Pick_Activity.class);
+                startActivity(pick_intent);
+            }
+        });
 
         return recommended_view; // 수정된 fragment_recommend.xml 반환
     }
