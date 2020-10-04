@@ -42,14 +42,16 @@
             />
 
         <ImageButton
-            android:id="@+id/player_btn"
+            android:id="@+id/player_ai_btn"
             android:layout_width="35dp"
             android:layout_height="27dp"
             android:layout_gravity="center"
             android:layout_weight="1"
             android:background="@color/transparent"
+            android:onClick="play_ai_onclick"
             android:scaleType="fitCenter"
-            app:srcCompat="@drawable/play" />
+            app:srcCompat="@drawable/play"
+            tools:ignore="OnClick" />
     </LinearLayout>
     <!--코드의 Title부분 -->
     <!--    <TextView-->

@@ -3,8 +3,10 @@ package com.example.maknaetest;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -45,5 +47,11 @@ public class Card_Activity extends AppCompatActivity {
 
 
 
+    }
+
+    public void play_mood_onclick(View view){
+        // LENGTH_LONG : 길게 화면에 나타남
+        // LENGTH_SHORT : 짧게 화면에 나타남
+        Toast.makeText(this, "분위기카드 재생버튼이 눌렸습니다!", Toast.LENGTH_LONG).show();
     }
 }
