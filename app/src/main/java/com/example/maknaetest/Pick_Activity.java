@@ -10,6 +10,10 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
 //픽버튼 클릭시 확장 화면
 
 public class Pick_Activity extends AppCompatActivity {
@@ -27,8 +31,29 @@ public class Pick_Activity extends AppCompatActivity {
 
     // play_onclick 대한 로직
     public void play_ai_onclick(View view){
+
+        String state; // 시간 상태 변수
+        //현재시간을 가져오는 코드
+        long now = System.currentTimeMillis();
+        Date mDate = new Date(now);
+        SimpleDateFormat simpleDate = new SimpleDateFormat("hh");
+        String getTime = simpleDate.format(mDate);
+        int hour = Integer.parseInt(getTime);
+
+        // 가져온 시간을 아침 점심 저녁 새벽으로 나누는 작업
+        if (hour>=7 && hour<=11)
+            state = "아침";
+        else if (hour>=12 && hour<=16)
+            state = "점심";
+        else if (hour>=17 && hour<=23)
+            state = "저녁";
+        else state = "새벽";
+
+
+
+
         // LENGTH_LONG : 길게 화면에 나타남
         // LENGTH_SHORT : 짧게 화면에 나타남
-        Toast.makeText(this, "막내픽 재생버튼이 눌렸습니다!", Toast.LENGTH_LONG).show();
+        Toast.makeText(this, state+getTime, Toast.LENGTH_LONG).show();
     }
 }

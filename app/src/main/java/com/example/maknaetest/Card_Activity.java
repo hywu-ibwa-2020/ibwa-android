@@ -52,6 +52,9 @@ public class Card_Activity extends AppCompatActivity {
     public void play_mood_onclick(View view){
         // LENGTH_LONG : 길게 화면에 나타남
         // LENGTH_SHORT : 짧게 화면에 나타남
-        Toast.makeText(this, "분위기카드 재생버튼이 눌렸습니다!", Toast.LENGTH_LONG).show();
+        Intent intent = getIntent();
+        String Title = intent.getExtras().getString("Title"); //현재 화면의 title을 가져와 Title 변수에 저장
+
+        Toast.makeText(this, Title+" 분위기카드 재생버튼이 눌렸습니다!", Toast.LENGTH_LONG).show();
     }
 }
