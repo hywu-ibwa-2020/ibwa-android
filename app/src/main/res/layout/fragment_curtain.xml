@@ -28,6 +28,7 @@
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:background="@drawable/light_power_btn"
+            android:onClick="lightPower"
             android:src="@drawable/ic_power_settings_new_black_24dp" />
     </LinearLayout>
 
