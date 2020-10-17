@@ -16,6 +16,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:paddingTop="26dp">
+        <ImageButton
+            android:id="@+id/btnConnect"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:src="@drawable/bluetooth"
+            android:background="@drawable/light_power_btn"/>
 
         <Button
             android:id="@+id/lightBar"
@@ -66,7 +72,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+<<<<<<< HEAD
         app:layout_constraintVertical_bias="0.95">
+=======
+        app:layout_constraintVertical_bias="0.8">
+>>>>>>> 18db35db775df6f5f31651fe9649eda52e719cf9
 
         <ImageButton
             android:id="@+id/curtainUp"
@@ -75,7 +85,7 @@
             android:background="@drawable/curtain_up_btn"
             android:src="@drawable/triangle_up" />
 
-        <TextView
+        <ImageView
             android:id="@+id/lighting"
             android:layout_width="70dp"
             android:layout_height="70dp"

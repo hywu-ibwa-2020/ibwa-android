@@ -2,15 +2,27 @@ package com.example.maknaetest;
 
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.bluetooth.BluetoothAdapter;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import app.akexorcist.bluetotohspp.library.BluetoothSPP;
+import app.akexorcist.bluetotohspp.library.BluetoothState;
+import app.akexorcist.bluetotohspp.library.DeviceList;
 
 //카드뷰 클릭시 확장 화면
 
 public class Card_Activity extends AppCompatActivity {
+    private BluetoothSPP bt;
 
     private TextView tvtitle, tvdescription, tvcategory; // RecyclerViewAdapter 를 통해 넘어오는 데이터 담을 변수 선언
     private ImageView img, heart; // RecyclerViewAdapter 를 통해 넘어오는 담을 변수 선언
@@ -25,6 +37,14 @@ public class Card_Activity extends AppCompatActivity {
 //        tvcategory = (TextView) findViewById(R.id.txtCat);
         img = (ImageView) findViewById(R.id.cardthumbnail); // img변수에 activity_card.xml 안 cardthumbnail 이미지뷰를 저장
         heart = (ImageView) findViewById(R.id.card_heart);
+
+        bt = new BluetoothSPP(this); //Initializing
+
+        bt.setOnDataReceivedListener(new BluetoothSPP.OnDataReceivedListener() { //데이터 수신
+            public void onDataReceived(byte[] data, String message) {
+                Toast.makeText(Card_Activity.this, message, Toast.LENGTH_SHORT).show();
+            }
+        });
 
 
 
@@ -46,4 +66,48 @@ public class Card_Activity extends AppCompatActivity {
 
 
     }
+
+    public void onStart(){
+        super.onStart();
+        if (!bt.isBluetoothEnabled()) { //
+            Intent intent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
+            startActivityForResult(intent, BluetoothState.REQUEST_ENABLE_BT);
+        } else {
+            if (!bt.isServiceAvailable()) {
+                bt.setupService();
+                bt.startService(BluetoothState.DEVICE_OTHER); //DEVICE_ANDROID는 안드로이드 기기 끼리
+                setup();
+            }
+        }
+    }
+
+    public void setup() {
+        ImageButton btnSend = findViewById(R.id.player_mood_btn); //데이터 전송
+        String mState;
+        Intent intent = getIntent();
+        String Title = intent.getExtras().getString("Title"); //현재 화면의 title을 가져와 Title 변수에 저장
+        String music = intent.getExtras().getString("Music_state");
+        if (music=="m01") {
+            mState = music;
+        }else if(music=="m02") {
+            mState = music;
+        }else if(music=="m03") {
+            mState = music;
+        }else if(music=="m04") {
+            mState = music;
+        }else if(music=="m05") {
+            mState = music;
+        }else
+            mState = music;
+
+
+
+        btnSend.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                bt.send(mState, true);
+            }
+        });
+    }
+
+
 }

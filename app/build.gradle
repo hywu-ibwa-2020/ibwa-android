@@ -68,4 +68,14 @@ dependencies {
     def nav_version = "2.3.0-alpha03"
     implementation "androidx.navigation:navigation-fragment:$nav_version"
     implementation "androidx.navigation:navigation-ui:$nav_version"
+
+    //날씨 API
+    implementation 'com.squareup.retrofit2:retrofit:2.3.0'
+    implementation 'com.google.code.gson:gson:2.2.4'
+    implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
+
+    // 아두이노와 블루투스 연결을 위한 컴파일
+    implementation 'com.akexorcist:bluetoothspp:1.0.0'
+
+
 }

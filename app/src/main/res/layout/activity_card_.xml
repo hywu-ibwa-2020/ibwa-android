@@ -42,7 +42,7 @@
             />
 
         <ImageButton
-            android:id="@+id/player_btn"
+            android:id="@+id/player_mood_btn"
             android:layout_width="35dp"
             android:layout_height="27dp"
             android:layout_gravity="center"
