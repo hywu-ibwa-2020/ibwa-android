@@ -7,7 +7,9 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.lifecycle.ViewModelStore;
 import androidx.navigation.Navigation;
 import androidx.viewpager.widget.ViewPager;
 
@@ -40,6 +42,9 @@ public class TimerAddActivity extends AppCompatActivity {
     // 선언
     ViewPager viewPager;
     LinearLayout linearLayout5;
+    // 더 이상 사용하지 않는 ViewModelProviders.of을 대체하기 위해서 선언
+    private ViewModelProvider.AndroidViewModelFactory viewModelFactory;
+    private ViewModelStore viewModelStore = new ViewModelStore();
     // butterKnife's @BindView로 선언 및 정의 (변수 선언과 정의를 더 쉽게 해주는 라이브러리)
     @BindView(R.id.time_picker) TimePicker timePicker;
     @BindView(R.id.sun_btn) ToggleButton sun;
@@ -61,7 +66,12 @@ public class TimerAddActivity extends AppCompatActivity {
         setContentView(R.layout.activity_timer_add);
         ButterKnife.bind(this);
 
-        createTimerViewModel = ViewModelProviders.of(this).get(CreateTimerViewModel.class);
+//        createTimerViewModel = ViewModelProviders.of(this).get(CreateTimerViewModel.class);
+        // 위 코드를 더 이상 제공해주지않아서 사용이 불가능하기때문에 아래 코드로 변경.
+        if (viewModelFactory == null){
+            viewModelFactory = ViewModelProvider.AndroidViewModelFactory.getInstance(getApplication());
+        }
+        createTimerViewModel = new ViewModelProvider(this, viewModelFactory).get(CreateTimerViewModel.class);
 
         // 선언부
 //        // 넘버피커 선언
@@ -69,12 +79,10 @@ public class TimerAddActivity extends AppCompatActivity {
 //        NumberPicker hour_num_picker =(NumberPicker)findViewById(R.id.hour_num_picker); // 시
 //        NumberPicker min_num_picker =(NumberPicker)findViewById(R.id.min_num_picker);   // 분
 
-        // 탭의 커튼, 조명 텍스트뷰 선언 및 정의
+        // 탭의 커튼, 조명 텍스트뷰 선언 및 정의 (탭을 위해)
         TextView curtain1 = (TextView)findViewById(R.id.select_curtain1_textView);
         TextView curtain2 = (TextView)findViewById(R.id.select_curtain2_textView);
         TextView light = (TextView)findViewById(R.id.select_light_textView);
-
-
 
         // 탭을 위한 뷰페이저와 레이아웃 정의
         viewPager = (ViewPager)findViewById(R.id.viewPager);
@@ -108,7 +116,6 @@ public class TimerAddActivity extends AppCompatActivity {
 //        min_num_picker.setMinValue(00);
 //        min_num_picker.setMaxValue(59);
 //        min_num_picker.setOnLongPressUpdateInterval(100);
-
 
         // 커튼1, 2, 조명 탭을 위한 뷰페이저 셋팅.
         viewPager.setAdapter(new pagerAdapter(getSupportFragmentManager()));
@@ -221,6 +228,7 @@ public class TimerAddActivity extends AppCompatActivity {
                 TimePickerUtil.getTimePickerHour(timePicker),
                 TimePickerUtil.getTimePickerMinute(timePicker),
                 true,
+//                boolRecurring(),
                 mon.isChecked(),
                 tue.isChecked(),
                 wed.isChecked(),
@@ -233,6 +241,16 @@ public class TimerAddActivity extends AppCompatActivity {
         createTimerViewModel.insert(timer);
 
         timer.schedule(getApplicationContext());
+    }
+
+    // 요일 반복을 하는지를 확인하기 위해 만든 메소드
+    public boolean boolRecurring(){
+        if (mon.isChecked() | tue.isChecked() | wed.isChecked() | thu.isChecked()
+                | fri.isChecked() | sat.isChecked() | sun.isChecked()){
+            return true;
+        }else {
+            return false;
+        }
     }
 
 }

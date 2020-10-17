@@ -26,24 +26,35 @@ public class FragmentTimerSelectCurtain2 extends Fragment {
         // 스위치
         switch1 = (Switch) select_curtain2_view.findViewById(R.id.switch1);
 
-        NumberPicker.Formatter ap_formatter = new NumberPicker.Formatter() {
-            @Override
-            public String format(int value) {
-                switch (value){
-                    case 0:
-                        return "0";
-                    case 1:
-                        return "50";
-                    case 2:
-                        return "100";
-                }
-                return null;
-            }
-        };
+        int minValue = 0;
+        int maxValue = 100;
+        int step = 25;
+
+        String[] curtainHeightValues = getArrayWithSteps(minValue, maxValue, step);
+
         curtain2_picker.setMinValue(0);
-        curtain2_picker.setMaxValue(2);
-        curtain2_picker.setFormatter(ap_formatter);
+        curtain2_picker.setMaxValue((maxValue - minValue) / step);
+        curtain2_picker.setDisplayedValues(curtainHeightValues);
         curtain2_picker.setWrapSelectorWheel(false);
+
+//        NumberPicker.Formatter ap_formatter = new NumberPicker.Formatter() {
+//            @Override
+//            public String format(int value) {
+//                switch (value){
+//                    case 0:
+//                        return "0";
+//                    case 1:
+//                        return "50";
+//                    case 2:
+//                        return "100";
+//                }
+//                return null;
+//            }
+//        };
+//        curtain2_picker.setMinValue(0);
+//        curtain2_picker.setMaxValue(2);
+//        curtain2_picker.setFormatter(ap_formatter);
+//        curtain2_picker.setWrapSelectorWheel(false);
 
         // 스위치 상태 변화를 확인하는 리스너.
         switch1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener(){
@@ -60,5 +71,15 @@ public class FragmentTimerSelectCurtain2 extends Fragment {
         });
 
         return select_curtain2_view;
+    }
+
+    public String[] getArrayWithSteps(int min, int max, int step) {
+        int number_of_array = (max - min) / step + 1;
+        String[] result = new String[number_of_array];
+
+        for (int i = 0; i < number_of_array; i++) {
+            result[i] = String.valueOf(min + step * i);
+        }
+        return result;
     }
 }

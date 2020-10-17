@@ -28,68 +28,69 @@
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:background="@drawable/light_power_btn"
-            android:src="@drawable/ic_power_settings_new_black_24dp" />
+            android:src="@drawable/ic_power_settings_new_black_24dp"
+            android:contentDescription="TODO" />
     </LinearLayout>
+
 
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:gravity="center_horizontal|top"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
         <Button
             android:id="@+id/curtain1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:background="@drawable/curtain1_btn"
-            android:scaleType="fitCenter"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+            android:layout_gravity="fill"
+            android:background="@drawable/curtain1_btn" />
 
         <Button
             android:id="@+id/curtain2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/curtain2_btn"
-            app:layout_constraintStart_toEndOf="@+id/curtain1"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+            android:layout_gravity="fill"
+            android:background="@drawable/curtain2_btn" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
         android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
-        android:layout_marginTop="16dp"
-        android:gravity="center_horizontal">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:layout_constraintVertical_bias="0.95">
 
         <ImageButton
             android:id="@+id/curtainUp"
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:background="@drawable/curtain_up_btn"
-            android:src="@drawable/triangle_up"/>
+            android:src="@drawable/triangle_up" />
 
         <TextView
             android:id="@+id/lighting"
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:background="@drawable/lighting_red"
-            android:layout_marginLeft="64dp"/>
+            android:layout_marginLeft="64dp"
+            android:background="@drawable/lighting_red" />
 
         <ImageButton
             android:id="@+id/curtainDown"
             android:layout_width="70dp"
             android:layout_height="70dp"
+            android:layout_marginLeft="64dp"
             android:background="@drawable/curtain_up_btn"
             android:rotation="180"
-            android:src="@drawable/triangle_up"
-            android:layout_marginLeft="64dp"/>
+            android:src="@drawable/triangle_up" />
     </LinearLayout>
-
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

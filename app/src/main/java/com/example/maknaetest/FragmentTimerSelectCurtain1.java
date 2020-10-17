@@ -28,9 +28,18 @@ public class FragmentTimerSelectCurtain1 extends Fragment {
         // 스위치 정의 (사용 미사용을 선택하기위한 스위치)
         switch1 = (Switch) select_curtain1_view.findViewById(R.id.switch1);
 
-//        int minValue = 0;
-//        int maxValue = 100;
-//        int step = 50;
+
+        int minValue = 0;
+        int maxValue = 100;
+        int step = 25;
+
+        String[] curtainHeightValues = getArrayWithSteps(minValue, maxValue, step);
+
+        curtain1_picker.setMinValue(0);
+        curtain1_picker.setMaxValue((maxValue - minValue) / step);
+        curtain1_picker.setDisplayedValues(curtainHeightValues);
+        curtain1_picker.setWrapSelectorWheel(false);
+
 //
 //        String[] numberValues = new String[maxValue - minValue + 1];
 //        for (int i = 0; i <= numberValues.length; i++) {
@@ -40,26 +49,26 @@ public class FragmentTimerSelectCurtain1 extends Fragment {
 //        curtain1_picker.setMinValue(minValue);
 //        curtain1_picker.setMaxValue(maxValue);
 
-        // 넘버픽커 포메터 만듦. (형식 지정해주는 거라고 생각하면 됨.)
-        NumberPicker.Formatter ap_formatter = new NumberPicker.Formatter() {
-            @Override
-            public String format(int value) {
-                switch (value){
-                    case 0:
-                        return "0";
-                    case 1:
-                        return "50";
-                    case 2:
-                        return "100";
-                }
-                return null;
-            }
-        };
-        curtain1_picker.setMinValue(0);
-        curtain1_picker.setMaxValue(2);
-        curtain1_picker.setWrapSelectorWheel(false);
-        // 포메터 적용.
-        curtain1_picker.setFormatter(ap_formatter);
+//        // 넘버픽커 포메터 만듦. (형식 지정해주는 거라고 생각하면 됨.)
+//        NumberPicker.Formatter ap_formatter = new NumberPicker.Formatter() {
+//            @Override
+//            public String format(int value) {
+//                switch (value){
+//                    case 0:
+//                        return "0";
+//                    case 1:
+//                        return "50";
+//                    case 2:
+//                        return "100";
+//                }
+//                return null;
+//            }
+//        };
+//        curtain1_picker.setMinValue(0);
+//        curtain1_picker.setMaxValue(2);
+//        curtain1_picker.setWrapSelectorWheel(false);
+//        // 포메터 적용.
+//        curtain1_picker.setFormatter(ap_formatter);
 
         // 스위치 상태 변화를 확인하는 리스너.
         switch1.setOnCheckedChangeListener(new OnCheckedChangeListener(){
@@ -76,6 +85,16 @@ public class FragmentTimerSelectCurtain1 extends Fragment {
         });
 
         return select_curtain1_view;
+    }
+
+    public String[] getArrayWithSteps(int min, int max, int step) {
+        int number_of_array = (max - min) / step + 1;
+        String[] result = new String[number_of_array];
+
+        for (int i = 0; i < number_of_array; i++) {
+            result[i] = String.valueOf(min + step * i);
+        }
+        return result;
     }
 
 }
