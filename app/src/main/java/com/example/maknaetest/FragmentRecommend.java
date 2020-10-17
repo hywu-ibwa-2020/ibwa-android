@@ -16,6 +16,8 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
@@ -26,12 +28,12 @@ public class FragmentRecommend extends Fragment {
         View recommended_view = inflater.inflate(R.layout.fragment_recommend, container, false);
 
         lstCard = new ArrayList<>();
-        lstCard.add(new Card("혼술하기 딱 좋은","category card","description card",R.drawable.forth,R.drawable.heart_line));
-        lstCard.add(new Card("기분전환이 필요해","category card","description card",R.drawable.first,R.drawable.heart_line));
-        lstCard.add(new Card("LOVE HOUSE","category card","description card",R.drawable.second,R.drawable.heart_line));
-        lstCard.add(new Card("위로받고 싶은 날","category card","description card",R.drawable.third,R.drawable.heart_line));
-        lstCard.add(new Card("스터디집중모드","category card","description card",R.drawable.card_book,R.drawable.heart_line));
-        lstCard.add(new Card("집순이를 위한","category card","description card",R.drawable.card_home,R.drawable.heart_line));
+        lstCard.add(new Card("혼술하기 딱 좋은","category card","m01",R.drawable.forth,R.drawable.heart_line));
+        lstCard.add(new Card("기분전환이 필요해","category card","m02",R.drawable.first,R.drawable.heart_line));
+        lstCard.add(new Card("LOVE HOUSE","category card","m03",R.drawable.second,R.drawable.heart_full));
+        lstCard.add(new Card("위로받고 싶은 날","category card","m04",R.drawable.third,R.drawable.heart_line));
+        lstCard.add(new Card("스터디집중모드","category card","m05",R.drawable.card_book,R.drawable.heart_line));
+        lstCard.add(new Card("집순이를 위한","category card","m06",R.drawable.card_home,R.drawable.heart_line));
 
         RecyclerView myrv = (RecyclerView) recommended_view.findViewById(R.id.recycler_id); // fragment_recommend.xml의 recycler_id를 가진 RecyclerView 레이아웃 변수 선언
         RecyclerViewAdapter myAdapter = new RecyclerViewAdapter(lstCard, getActivity()); //RecyclerView 레이아웃 부분에 카드뷰를 넣기 위한 어댑터 객체 선언
@@ -40,41 +42,36 @@ public class FragmentRecommend extends Fragment {
 
         Button sort_btn = (Button) recommended_view.findViewById(R.id.sort_btn);
 
+
         sort_btn.setOnClickListener(new View.OnClickListener(){ // 정렬버튼 클릭시 채워진 하트를 포함하는 카드를 우선 정렬
 
             @Override
             public void onClick(View view) {
 
-                lstCard.sort(new Comparator<Card>() {
+                Comparator<Card> sorted = new Comparator<Card>() {
                     @Override
                     public int compare(Card o1, Card o2) {
-                        if (o1.getHeart() < o2.getHeart()){
-                            return 1;
-                        }else if (o1.getHeart() > o1.getHeart()) {
-                            return -1;
-                        }
-                        return 0;
-
-
+                        int ret;
+                        if (o1.getHeart() < o2.getHeart())
+                            ret= 1;
+                        else if (o1.getHeart() == o1.getHeart())
+                            ret= 0;
+                        else
+                            ret= -1;
+                        return ret;
                     }
-                });
+                };
+
+                Collections.sort(lstCard,sorted);
+                myAdapter.notifyDataSetChanged(); // 어댑터 갱신
+                myrv.setAdapter(myAdapter);
+
+
 
             }
         });
-        myAdapter.notifyDataSetChanged(); // 어댑터 갱신
-        myrv.setAdapter(myAdapter); // RecyclerView에 어댑터 재연결
 
 
-
-
-
-        // 카드뷰의 각 카드를 객체 비교하여 heart 원소가 heart_full인 것을 우선 정렬
-//        lstCard.sort(new Comparator<Card>() {
-//            @Override
-//            public int compare(Card o1, Card o2) {
-//                    return o1.getHeart() - o2.getHeart();
-//            }
-//        });
 
 //        // 막내의 pick 이용하기 버튼
         Button pick_btn = (Button) recommended_view.findViewById(R.id.pick_btn);
@@ -88,6 +85,10 @@ public class FragmentRecommend extends Fragment {
             }
         });
 
+
         return recommended_view; // 수정된 fragment_recommend.xml 반환
+
+
     }
+
 }

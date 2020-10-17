@@ -74,5 +74,8 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.2.4'
     implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
 
+    // 아두이노와 블루투스 연결을 위한 컴파일
+    implementation 'com.akexorcist:bluetoothspp:1.0.0'
+
 
 }

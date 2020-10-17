@@ -48,7 +48,6 @@
             android:layout_gravity="center"
             android:layout_weight="1"
             android:background="@color/transparent"
-            android:onClick="play_mood_onclick"
             android:scaleType="fitCenter"
             app:srcCompat="@drawable/play" />
     </LinearLayout>
