@@ -20,7 +20,9 @@ public class TimerRecycleView extends RecyclerView {
     private List<View> emptyViews = Collections.emptyList();
 
 
+    // AdapterDataObserver 객체를 만들어서 (데이터가 변하는지 감시.)
     private AdapterDataObserver timerObserver = new AdapterDataObserver() {
+        // 데이터가 변하면 toggeleVies 메서드 실행
         @Override
         public void onChanged() {
             toggleViews();
@@ -52,6 +54,7 @@ public class TimerRecycleView extends RecyclerView {
         }
     };
 
+    // RecyclerView의 아이템 개수가 0개인지 아닌지 확인하여 emptyView를 보여줄지 아닐지 결정하는 메서드
     private void toggleViews() {
         if(getAdapter()!=null && !emptyViews.isEmpty() && !nonEmptyViews.isEmpty()){
             if(getAdapter().getItemCount()==0){
@@ -85,6 +88,7 @@ public class TimerRecycleView extends RecyclerView {
         super(context, attrs, defStyleAttr);
     }
 
+    // observer를 통해 adapter의 데이터가 변하는지 실제로 감시함. 또한 데이터가 변하면 observer의 onChanged 메서드 실행
     @Override
     public void setAdapter(@Nullable Adapter adapter) {
         super.setAdapter(adapter);
