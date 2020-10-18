@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -52,9 +53,9 @@ public class FragmentRecommend extends Fragment {
                     @Override
                     public int compare(Card o1, Card o2) {
                         int ret;
-                        if (o1.getHeart() < o2.getHeart())
+                        if (o1.getHeart() > o2.getHeart())
                             ret= 1;
-                        else if (o1.getHeart() == o1.getHeart())
+                        else if (o1.getHeart() == o2.getHeart())
                             ret= 0;
                         else
                             ret= -1;
@@ -65,6 +66,7 @@ public class FragmentRecommend extends Fragment {
                 Collections.sort(lstCard,sorted);
                 myAdapter.notifyDataSetChanged(); // 어댑터 갱신
                 myrv.setAdapter(myAdapter);
+//                Toast.makeText(getActivity(), "커튼2가 내려갑니다.", Toast.LENGTH_SHORT).show();
 
 
 
