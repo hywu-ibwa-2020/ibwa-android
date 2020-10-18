@@ -13,6 +13,7 @@ import com.example.maknaetest.timerdata.TimerRepository;
 import java.sql.Time;
 import java.util.List;
 
+// 재부팅되었을 때, 잃어버린 AlarmManager 정보들을 다시 만들도록함.
 public class RescheduleTimersService extends LifecycleService {
     @Override
     public void onCreate() {

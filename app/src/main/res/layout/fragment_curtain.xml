@@ -72,7 +72,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+<<<<<<< HEAD
+        app:layout_constraintVertical_bias="0.95">
+=======
         app:layout_constraintVertical_bias="0.8">
+>>>>>>> 18db35db775df6f5f31651fe9649eda52e719cf9
 
         <ImageButton
             android:id="@+id/curtainUp"
