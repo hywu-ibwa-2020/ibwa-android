@@ -27,15 +27,23 @@
             android:id="@+id/lightBar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/light_bar_btn" />
+            android:background="@drawable/light_bar_btn"
+            android:enabled="false"/>
 
-        <ImageButton
+        <!--        <ImageButton-->
+        <!--            android:id="@+id/lightPower"-->
+        <!--            android:layout_width="70dp"-->
+        <!--            android:layout_height="70dp"-->
+        <!--            android:background="@drawable/light_power_btn"-->
+        <!--            android:src="@drawable/ic_power_settings_new_black_24dp"-->
+        <!--            android:contentDescription="TODO" />-->
+        <ToggleButton
             android:id="@+id/lightPower"
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:background="@drawable/light_power_btn"
-            android:src="@drawable/ic_power_settings_new_black_24dp"
-            android:contentDescription="TODO" />
+            android:background="@drawable/curtain_light_power_toggle_selector"
+            android:textOn=""
+            android:textOff=""/>
     </LinearLayout>
 
 
@@ -48,19 +56,50 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
-        <Button
+        <ToggleButton
             android:id="@+id/curtain1"
+            android:textOn=""
+            android:textOff=""
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="400dp"
             android:layout_gravity="fill"
-            android:background="@drawable/curtain1_btn" />
+            android:background="@drawable/curtain1_toggle_selector" />
 
-        <Button
+        <ToggleButton
             android:id="@+id/curtain2"
+            android:textOn=""
+            android:textOff=""
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="400dp"
             android:layout_gravity="fill"
-            android:background="@drawable/curtain2_btn" />
+            android:background="@drawable/curtain2_toggle_selector"
+            android:textColor="@color/mainTxt" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout2_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal|top"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+        <ToggleButton
+            android:id="@+id/curtain1_1"
+            android:layout_width="wrap_content"
+            android:layout_height="400dp"
+            android:layout_gravity="fill"
+            android:background="@drawable/curtain1_toggle_selector_fg"
+            android:textColor="@color/mainTxt" />
+
+        <ToggleButton
+            android:id="@+id/curtain2_1"
+            android:layout_width="wrap_content"
+            android:layout_height="400dp"
+            android:layout_gravity="fill"
+            android:background="@drawable/curtain2_toggle_selector_fg"
+            android:textColor="@color/mainTxt" />
     </LinearLayout>
 
     <LinearLayout
@@ -72,11 +111,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-<<<<<<< HEAD
+
         app:layout_constraintVertical_bias="0.95">
-=======
-        app:layout_constraintVertical_bias="0.8">
->>>>>>> 18db35db775df6f5f31651fe9649eda52e719cf9
 
         <ImageButton
             android:id="@+id/curtainUp"
@@ -85,7 +121,7 @@
             android:background="@drawable/curtain_up_btn"
             android:src="@drawable/triangle_up" />
 
-        <ImageView
+        <ImageButton
             android:id="@+id/lighting"
             android:layout_width="70dp"
             android:layout_height="70dp"

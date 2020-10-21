@@ -21,37 +21,6 @@
         app:layout_constraintVertical_bias="0.0" />
 
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="horizontal"
-        android:layout_margin="13dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:background="@drawable/music_bg" >
-
-        <SeekBar
-            android:id="@+id/seekBar"
-            android:layout_width="310dp"
-            android:layout_height="40dp"
-            android:layout_gravity="center"
-            android:layout_weight="3"
-            android:layout_marginLeft="10dp"
-            />
-
-        <ImageButton
-            android:id="@+id/player_ai_btn"
-            android:layout_width="35dp"
-            android:layout_height="27dp"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:background="@color/transparent"
-            android:scaleType="fitCenter"
-            app:srcCompat="@drawable/play"
-            tools:ignore="OnClick" />
-    </LinearLayout>
     <!--코드의 Title부분 -->
     <!--    <TextView-->
     <!--        android:id="@+id/txttitle"-->
@@ -64,6 +33,39 @@
     <!--        app:layout_constraintEnd_toStartOf="@+id/cardthumbnail"-->
     <!--        app:layout_constraintStart_toStartOf="parent"-->
     <!--        app:layout_constraintTop_toTopOf="parent" />-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/music_bg"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.48"
+        app:layout_constraintStart_toStartOf="parent">
+
+<!--        <ImageButton-->
+<!--            android:id="@+id/player_ai_btn"-->
+<!--            android:layout_width="35dp"-->
+<!--            android:layout_height="27dp"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:layout_weight="1"-->
+<!--            android:background="@color/transparent"-->
+<!--            android:scaleType="fitCenter"-->
+<!--            app:srcCompat="@drawable/play"-->
+<!--            tools:ignore="OnClick" />-->
+
+        <ToggleButton
+            android:id="@+id/player_ai_btn"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:background="@drawable/music_toggle_selector"
+            android:textOn=""
+            android:textOff=""/>
+    </LinearLayout>
 
     <TextView
         android:id="@+id/textView"
