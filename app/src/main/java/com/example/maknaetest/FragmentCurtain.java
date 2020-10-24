@@ -136,13 +136,17 @@ public class FragmentCurtain extends Fragment implements View.OnClickListener, C
                 } else {                                  // 조명 전원 버튼이 꺼져있다면
                     lightBar_btn.setClickable(false);   // 조명 바 비활성화
                     lightBar_btn.setEnabled(false);
+                    drawable.setColor(Color.WHITE);
+                    lightBar_btn.setBackground(drawable);
+                    bt.send("off", true);
+                    Toast.makeText(getActivity(), "조명이 꺼집니다.", Toast.LENGTH_SHORT).show();
                 }
 
             }
         });
 
         lightBar_btn.setOnClickListener(this);
-        
+
         // 위쪽 화살표를 눌렀을때
         curtainUp.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -249,8 +253,9 @@ public class FragmentCurtain extends Fragment implements View.OnClickListener, C
         drawable.setColor(color);
         lightBar_btn.setBackground(drawable);
         colorString = toRGB(color);
-        Log.v("color: ", colorString);
-        bt.send(colorString, true);
+//        Log.v("color: ", colorString);
+        bt.send(colorString+"\n", true);
+        Toast.makeText(getActivity(), colorString+"\n", Toast.LENGTH_SHORT).show();
     }
 
     public String toRGB(int color) {
@@ -259,7 +264,7 @@ public class FragmentCurtain extends Fragment implements View.OnClickListener, C
         int green = col >> 8 & 0xff;
         int blue = col  & 0xff;
         Log.d("DEBUG1",red+" / "+green+ " / " +blue);
-        return Integer.toString(red) + " "+ Integer.toString(green) + " " + Integer.toString(blue);
+        return Integer.toString(red) + ","+ Integer.toString(green) + "," + Integer.toString(blue);
     }
 
     public void onStart() {
