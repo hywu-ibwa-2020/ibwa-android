@@ -82,14 +82,19 @@ public class Pick_Activity extends AppCompatActivity {
         String getTime = simpleDate.format(mDate);
         int hour = Integer.parseInt(getTime);
         // 가져온 시간을 아침 점심 저녁 새벽으로 나누는 작업
-        if (hour>=7 && hour<=11)
+        if (hour>=6 && hour<=11)
 //          state = 0xa1;//아침
             state = "아침";
         else if (hour>=12 && hour<=16)
             state = "점심";
-        else if (hour>=17 && hour<=23)
+        else if (hour>=17 && hour<=20)
             state = "저녁";
+        else if (hour>=21 && hour<=24)
+            state = "밤";
         else  state = "새벽";
+
+        //날씨를 맑음, 흐림, 눈, 비로 나누는 작업
+
 
         if (player_ai_btn.isChecked())
             bt.send(state, true);

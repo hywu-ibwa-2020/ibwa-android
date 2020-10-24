@@ -125,7 +125,6 @@ public class FragmentCurtain extends Fragment implements View.OnClickListener, C
             }
         });
 
-
 //         조명바 온오프 설정 코드 (3번)
         lightPower_btn.setOnClickListener(new OnClickListener() {
             @Override
@@ -143,9 +142,7 @@ public class FragmentCurtain extends Fragment implements View.OnClickListener, C
         });
 
         lightBar_btn.setOnClickListener(this);
-
-
-
+        
         // 위쪽 화살표를 눌렀을때
         curtainUp.setOnClickListener(new View.OnClickListener(){
             @Override
