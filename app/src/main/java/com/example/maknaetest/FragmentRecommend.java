@@ -34,7 +34,7 @@ public class FragmentRecommend extends Fragment {
         lstCard.add(new Card("캠프파이어","category card","m03",R.drawable.camping,R.drawable.heart_line));
         lstCard.add(new Card("위로받고 싶은 날","category card","m04",R.drawable.third,R.drawable.heart_line));
         lstCard.add(new Card("스터디집중모드","category card","m05",R.drawable.card_book,R.drawable.heart_line));
-        lstCard.add(new Card("집순이를 위한","category card","m06",R.drawable.card_home,R.drawable.heart_line));
+        lstCard.add(new Card("피톤치드 뿜뿜","category card","m06",R.drawable.m06,R.drawable.heart_line));
 
         RecyclerView myrv = (RecyclerView) recommended_view.findViewById(R.id.recycler_id); // fragment_recommend.xml의 recycler_id를 가진 RecyclerView 레이아웃 변수 선언
         RecyclerViewAdapter myAdapter = new RecyclerViewAdapter(lstCard, getActivity()); //RecyclerView 레이아웃 부분에 카드뷰를 넣기 위한 어댑터 객체 선언
