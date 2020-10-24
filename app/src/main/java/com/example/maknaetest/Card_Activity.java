@@ -104,8 +104,11 @@ public class Card_Activity extends AppCompatActivity {
         }else
             mState = music;
 
-        if (player_mood_btn.isChecked())
+        if (player_mood_btn.isChecked()) {
             bt.send(mState, true);
+            Toast.makeText(this,mState, Toast.LENGTH_SHORT).show();
+        }
+
         else
             bt.send("노래를멈춰줘", true);
 

@@ -31,7 +31,7 @@ public class FragmentRecommend extends Fragment {
         lstCard = new ArrayList<>();
         lstCard.add(new Card("혼술하기 딱 좋은","category card","m01",R.drawable.forth,R.drawable.heart_line));
         lstCard.add(new Card("기분전환이 필요해","category card","m02",R.drawable.first,R.drawable.heart_line));
-        lstCard.add(new Card("LOVE HOUSE","category card","m03",R.drawable.second,R.drawable.heart_full));
+        lstCard.add(new Card("캠프파이어","category card","m03",R.drawable.camping,R.drawable.heart_line));
         lstCard.add(new Card("위로받고 싶은 날","category card","m04",R.drawable.third,R.drawable.heart_line));
         lstCard.add(new Card("스터디집중모드","category card","m05",R.drawable.card_book,R.drawable.heart_line));
         lstCard.add(new Card("집순이를 위한","category card","m06",R.drawable.card_home,R.drawable.heart_line));
@@ -67,7 +67,6 @@ public class FragmentRecommend extends Fragment {
                 myAdapter.notifyDataSetChanged(); // 어댑터 갱신
                 myrv.setAdapter(myAdapter);
 //                Toast.makeText(getActivity(), "커튼2가 내려갑니다.", Toast.LENGTH_SHORT).show();
-
 
 
             }

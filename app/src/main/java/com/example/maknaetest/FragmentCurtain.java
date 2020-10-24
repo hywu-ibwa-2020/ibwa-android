@@ -116,11 +116,11 @@ public class FragmentCurtain extends Fragment implements View.OnClickListener, C
 //                String[] array = message.split(",");
                 sun_state_int = Integer.parseInt(message);
                 Toast.makeText(getActivity(), sun_state_int+"가 온다...", Toast.LENGTH_SHORT).show();
-                if (sun_state_int >= 20 && sun_state_int < 180) //조도값이 100~300이면 좋음 값 출력
+                if (sun_state_int >= 381 && sun_state_int < 576) //조도값이 100~300이면 좋음 값 출력
                     lighting.setImageResource(R.drawable.lighting_blue);
-                else if (sun_state_int >= 180 && sun_state_int < 340) //조도값이 301~500이면 보통 값 출력
+                else if (sun_state_int >= 201 && sun_state_int < 381) //조도값이 301~500이면 보통 값 출력
                     lighting.setImageResource(R.drawable.lighting_green);
-                else //조도값이 500초과이면 나쁨 값 출력
+                else //조도값이 500초과이면 나쁨 값 출력 20~100
                     lighting.setImageResource(R.drawable.lighting_red);
             }
         });
