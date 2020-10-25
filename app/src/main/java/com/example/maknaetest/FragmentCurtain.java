@@ -163,7 +163,7 @@ public class FragmentCurtain extends Fragment implements View.OnClickListener, C
                         curtain1.setLayoutParams(params);
 //                        curtain1.setHeight(0);
                         Toast.makeText(getActivity(), "커튼1이 올라갑니다.", Toast.LENGTH_SHORT).show();
-                        bt.send("커일업\n",true);
+                        bt.send("c1up\n",true);
                     }else{
                         Toast.makeText(getActivity(), "커튼1이 이미 올라갔습니다.", Toast.LENGTH_SHORT).show();
                     }
@@ -172,7 +172,7 @@ public class FragmentCurtain extends Fragment implements View.OnClickListener, C
                         params2.height = 100;
                         curtain2.setLayoutParams(params2);
                         Toast.makeText(getActivity(), "커튼2가 올라갑니다.", Toast.LENGTH_SHORT).show();
-                        bt.send("커이업\n",true);
+                        bt.send("c2up\n",true);
                     }else{
                         Toast.makeText(getActivity(), "커튼2가 이미 올라갔습니다.", Toast.LENGTH_SHORT).show();
                     }
@@ -182,7 +182,7 @@ public class FragmentCurtain extends Fragment implements View.OnClickListener, C
                     params2.height = 100;
                     curtain2.setLayoutParams(params2);
                     Toast.makeText(getActivity(), "커튼1, 2가 올라갔습니다.", Toast.LENGTH_SHORT).show();
-                    bt.send("커일이업\n",true );
+                    bt.send("c12up\n",true );
                 } else
                     Toast.makeText(getActivity(), "활성화된 커튼이 없습니다. 커튼을 활성화 시켜주세요.", Toast.LENGTH_SHORT).show();
 
@@ -207,7 +207,7 @@ public class FragmentCurtain extends Fragment implements View.OnClickListener, C
                         curtain1.setLayoutParams(params);
 //                        curtain1.setHeight(0);
                         Toast.makeText(getActivity(), "커튼1이 내려갑니다.", Toast.LENGTH_SHORT).show();
-                        bt.send("커일단\n",true );
+                        bt.send("c1down\n",true );
                     }else{
                         Toast.makeText(getActivity(), "커튼1이 이미 내려갔습니다.", Toast.LENGTH_SHORT).show();
                     }
@@ -216,7 +216,7 @@ public class FragmentCurtain extends Fragment implements View.OnClickListener, C
                         params2.height = 1050;
                         curtain2.setLayoutParams(params2);
                         Toast.makeText(getActivity(), "커튼2가 내려갑니다.", Toast.LENGTH_SHORT).show();
-                        bt.send("커이단\n",true );
+                        bt.send("c2down\n",true );
                     }else{
                         Toast.makeText(getActivity(), "커튼2가 이미 내려갔습니다.", Toast.LENGTH_SHORT).show();
                     }
@@ -226,7 +226,7 @@ public class FragmentCurtain extends Fragment implements View.OnClickListener, C
                     params2.height = 1050;
                     curtain2.setLayoutParams(params2);
                     Toast.makeText(getActivity(), "커튼1, 2가 내려갔습니다.", Toast.LENGTH_SHORT).show();
-                    bt.send("커일이단\n",true );
+                    bt.send("c1,2down\n",true );
                 } else
                     Toast.makeText(getActivity(), "활성화된 커튼이 없습니다. 커튼을 활성화 시켜주세요.", Toast.LENGTH_SHORT).show();
             };

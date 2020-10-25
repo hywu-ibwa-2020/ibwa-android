@@ -41,13 +41,16 @@ public class Card_Activity extends AppCompatActivity {
         heart = (ImageView) findViewById(R.id.card_heart);
         player_mood_btn = (ToggleButton) findViewById(R.id.player_mood_btn);
 
-        bt = new BluetoothSPP(this); //Initializing
 
-        bt.setOnDataReceivedListener(new BluetoothSPP.OnDataReceivedListener() { //데이터 수신
-            public void onDataReceived(byte[] data, String message) {
-                Toast.makeText(Card_Activity.this, message, Toast.LENGTH_SHORT).show();
-            }
-        });
+        bt = new BluetoothSPP(this); //Initializing
+        String mState;
+        Intent intent = getIntent();
+        String music = intent.getExtras().getString("Music_state");
+        bt.send(music, true);
+        Toast.makeText(this, music, Toast.LENGTH_SHORT).show();
+
+
+
         player_mood_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -59,7 +62,7 @@ public class Card_Activity extends AppCompatActivity {
 
 
         // Recieve Data RecyclerViewAdapter 를 통해 받을 데이터
-        Intent intent = getIntent();
+
         String Title = intent.getExtras().getString("Title"); //안쓰는 코드
         String Description = intent.getExtras().getString("Description"); //안쓰는 코드
         int image = intent.getExtras().getInt("Thumbnail"); // RecyclerViewAdapter로 받아온 키값이 Thumbnail인 사진을 image 변수에 저장
@@ -87,32 +90,15 @@ public class Card_Activity extends AppCompatActivity {
     }
 
     public void setup() {
-        String mState;
-        Intent intent = getIntent();
-        String Title = intent.getExtras().getString("Title"); //현재 화면의 title을 가져와 Title 변수에 저장
-        String music = intent.getExtras().getString("Music_state");
-        if (music=="m01") {
-            mState = music;
-        }else if(music=="m02") {
-            mState = music;
-        }else if(music=="m03") {
-            mState = music;
-        }else if(music=="m04") {
-            mState = music;
-        }else if(music=="m05") {
-            mState = music;
-        }else
-            mState = music;
-
         if (player_mood_btn.isChecked()) {
-            bt.send(mState, true);
-            Toast.makeText(this,mState, Toast.LENGTH_SHORT).show();
-        }
-
-        else
-            bt.send("노래를멈춰줘", true);
-
+            bt.send("mpause", true);
+            Toast.makeText(this, "노래를 잠시 중단합니다.", Toast.LENGTH_SHORT).show();
+        }else
+            bt.send("mstart", true);
+            Toast.makeText(this, "노래를 다시 재생합니다.", Toast.LENGTH_SHORT).show();
     }
+
+
 
 
 }

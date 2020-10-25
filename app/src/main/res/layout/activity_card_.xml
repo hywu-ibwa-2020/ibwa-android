@@ -40,7 +40,9 @@
             android:layout_height="35dp"
             android:background="@drawable/music_toggle_selector"
             android:textOn=""
-            android:textOff=""/>
+            android:textOff=""
+            android:checked="true"/>
+
     </LinearLayout>
     <!--코드의 Title부분 -->
 <!--    <TextView-->

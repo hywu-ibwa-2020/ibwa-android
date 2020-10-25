@@ -6,10 +6,12 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.bluetooth.BluetoothAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
@@ -18,8 +20,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.Comparator;
 import java.util.List;
 
+import app.akexorcist.bluetotohspp.library.BluetoothSPP;
+import app.akexorcist.bluetotohspp.library.BluetoothState;
+import app.akexorcist.bluetotohspp.library.DeviceList;
+
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolder> {
     private List<Card> mData; // 카드뷰리스트 안 각 카드들의 요소데이터(제목, 꽉찬 하트, ) 카드 확장화면에 전송하기 위해
+    private BluetoothSPP bt;
 
     public RecyclerViewAdapter(List<Card> mData, Activity activity) {
         this.mData = mData;
@@ -32,34 +39,43 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         LayoutInflater mInflater = LayoutInflater.from(parent.getContext());
         view = mInflater.inflate(R.layout.card_view_item, parent,false);
         return new MyViewHolder(view);
+
     }
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, final int position) {
 
         holder.tv_card_title.setText(mData.get(position).getTitle()); //MyViewHolder 클래스(아래코드에 있음)에 카드뷰 리스트에서 가져온 값 (기분전환이 필요해) 넣기
-        holder.img_card_thumbnail.setImageResource(mData.get(position).getThumbnail());//MyViewHolder 클래스(아래코드에 있음)에 카드뷰 리스트에서 가져온 값 (배경사진) 넣기
-        holder.heart.setImageResource(mData.get(position).getHeart());//MyViewHolder 클래스(아래코드에 있음)에 카드뷰 리스트에서 가져온 값 (빈하트) 넣기
+        holder.img_card_thumbnail.setImageResource(mData.get(position).getThumbnail()); //MyViewHolder 클래스(아래코드에 있음)에 카드뷰 리스트에서 가져온 값 (배경사진) 넣기
+        holder.heart.setImageResource(mData.get(position).getHeart()); //MyViewHolder 클래스(아래코드에 있음)에 카드뷰 리스트에서 가져온 값 (빈하트) 넣기
         holder.heart.setTag(0);
-        holder.heart.setOnClickListener(new MyListener(holder.heart, position));// 하트 이미지를 클릭하면 발생하는 상황을 MyListener()에서 처리
+        holder.heart.setOnClickListener(new MyListener(holder.heart, position)); // 하트 이미지를 클릭하면 발생하는 상황을 MyListener()에서 처리
 
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Context context = v.getContext();
-                // passing data to the card activity
+                // card activity로 데이터 전달
                 Intent intent = new Intent(v.getContext(), Card_Activity.class);
                 intent.putExtra("Title",mData.get(position).getTitle());
                 intent.putExtra("Music_state",mData.get(position).getMusic_state());
                 intent.putExtra("Thumbnail",mData.get(position).getThumbnail());
+
+
                 // start the activity
                 context.startActivity(intent);
+
+
             }
         });
 
         // set click
 
     }
+
+
+
+
 
     class MyListener implements View.OnClickListener {
 

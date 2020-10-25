@@ -21,19 +21,6 @@
         app:layout_constraintVertical_bias="0.0" />
 
 
-    <!--코드의 Title부분 -->
-    <!--    <TextView-->
-    <!--        android:id="@+id/txttitle"-->
-    <!--        android:layout_width="wrap_content"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:text="card title"-->
-    <!--        android:textSize="18sp"-->
-    <!--        android:textStyle="bold"-->
-    <!--        app:layout_constraintBottom_toTopOf="@+id/cardthumbnail"-->
-    <!--        app:layout_constraintEnd_toStartOf="@+id/cardthumbnail"-->
-    <!--        app:layout_constraintStart_toStartOf="parent"-->
-    <!--        app:layout_constraintTop_toTopOf="parent" />-->
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -47,16 +34,7 @@
         app:layout_constraintHorizontal_bias="0.48"
         app:layout_constraintStart_toStartOf="parent">
 
-<!--        <ImageButton-->
-<!--            android:id="@+id/player_ai_btn"-->
-<!--            android:layout_width="35dp"-->
-<!--            android:layout_height="27dp"-->
-<!--            android:layout_gravity="center"-->
-<!--            android:layout_weight="1"-->
-<!--            android:background="@color/transparent"-->
-<!--            android:scaleType="fitCenter"-->
-<!--            app:srcCompat="@drawable/play"-->
-<!--            tools:ignore="OnClick" />-->
+
 
         <ToggleButton
             android:id="@+id/player_ai_btn"
@@ -65,6 +43,9 @@
             android:background="@drawable/music_toggle_selector"
             android:textOn=""
             android:textOff=""/>
+
+
+
     </LinearLayout>
 
     <TextView
